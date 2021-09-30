@@ -1,4 +1,6 @@
 # Laravel Eloquent BATCH
+[![Build Status](https://app.travis-ci.com/free3-5man/laravel-eloquent-batch.svg?branch=master)](https://app.travis-ci.com/free3-5man/laravel-eloquent-batch)
+
 provide an util for batch Insert/update, also an eloquent collection macro batchSave for batch action more convenient in Laravel.
 
 # Install
