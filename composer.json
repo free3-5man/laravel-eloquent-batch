@@ -15,8 +15,8 @@
         "ext-json": "*"
     },
     "require-dev": {
-        "orchestra/testbench": "^3.4",
-        "orchestra/database": "^3.4",
+        "orchestra/testbench": "^3.6",
+        "orchestra/database": "^3.6",
         "phpunit/phpunit": "^4.0"
     },
     "autoload": {
