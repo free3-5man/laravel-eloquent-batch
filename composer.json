@@ -16,6 +16,7 @@
     },
     "require-dev": {
         "orchestra/testbench": "^3.2",
+        "orchestra/database": "^3.2",
         "phpunit/phpunit": "^4.0"
     },
     "autoload": {
