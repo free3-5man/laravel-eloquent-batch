@@ -1,12 +1,12 @@
 {
-    "name": "freeman/laravel-eloquent-batch",
+    "name": "free3_5man/laravel-eloquent-batch",
     "description": "a common-used batch util is provided for batch insert/update in multiple databases, also with laravel eloquent based batch action",
     "type": "library",
     "license": "MIT",
     "authors": [
         {
             "name": "Michael Freeman",
-            "email": "freeman3_5man@163.com"
+            "email": "free3_5man@163.com"
         }
     ],
     "minimum-stability": "dev",

@@ -2,7 +2,7 @@
 provide an util for batch Insert/update, also an eloquent collection macro batchSave for batch action more convenient in Laravel.
 
 # Install
-`composer require freeman/laravel-eloquent-batch`
+`composer require free3_5man/laravel-eloquent-batch`
 
 # Service Provider
 file app.php in array providers :
