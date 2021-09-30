@@ -1,0 +1,45 @@
+{
+    "name": "freeman/laravel-eloquent-batch",
+    "description": "a common-used batch util is provided for batch insert/update in multiple databases, also with laravel eloquent based batch action",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Michael Freeman",
+            "email": "freeman3_5man@163.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "php": ">=7.0",
+        "ext-json": "*"
+    },
+    "require-dev": {
+        "orchestra/testbench": "^5.19",
+        "phpunit/phpunit": "^8.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "Freeman\\LaravelBatch\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Freeman\\LaravelBatch\\Test\\": "tests"
+        }
+    },
+    "scripts": {
+        "format": "vendor/bin/php-cs-fixer fix --allow-risky=yes",
+        "test": "vendor/bin/phpunit"
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Freeman\\LaravelBatch\\BatchServiceProvider"
+            ]
+        }
+    }
+}
