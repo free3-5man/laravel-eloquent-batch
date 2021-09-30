@@ -17,7 +17,7 @@ class BatchUtilTest extends DBTestCase
             'salary_per_year' => 8.35,
             'is_captain' => false,
             'apps' => 300,
-            'last_goal_at' => '2013-09-16 04:25',
+            // 'last_goal_at' => '2013-09-16 04:25',
             'attributes' => [
                 'Acceleration' => 20,
                 'Agility' => 18,
@@ -36,7 +36,7 @@ class BatchUtilTest extends DBTestCase
             'salary_per_year' => 8.53,
             'is_captain' => true,
             'apps' => 350,
-            'last_goal_at' => null,
+            // 'last_goal_at' => null,
             'attributes' => [
                 'Acceleration' => 16,
                 'Agility' => 15,
@@ -61,7 +61,7 @@ class BatchUtilTest extends DBTestCase
             'salary_per_year' => 8.5,
             'is_captain' => false,
             'apps' => 320,
-            'last_goal_at' => '2014-08-21 03:35',
+            // 'last_goal_at' => '2014-08-21 03:35',
             'attributes' => [
                 'Acceleration' => 12,
                 'Agility' => 15,

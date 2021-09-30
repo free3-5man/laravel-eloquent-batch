@@ -4,6 +4,7 @@ namespace Freeman\LaravelBatch\Test;
 
 use Freeman\LaravelBatch\BatchServiceProvider;
 use Orchestra\Testbench\TestCase as Orchestra;
+use Illuminate\Support\Facades\DB;
 
 abstract class DBTestCase extends Orchestra
 {
@@ -54,5 +55,10 @@ abstract class DBTestCase extends Orchestra
     protected function resetDatabase()
     {
         file_put_contents(__DIR__ . '/database/database.sqlite', null);
+    }
+
+    protected function assertDatabaseCount(string $table, int $count)
+    {
+        $this->assertEquals(DB::table($table)->count(), $count);
     }
 }
