@@ -30,7 +30,7 @@ class BatchServiceProvider extends ServiceProvider
                     ]),
                     $model->getDirty(),
                     $model->usesTimestamps() && $touchUpdatedAt ? [
-                        $model->getUpdatedAtColumn() => Carbon::now()->format($model->getDateFormat()),
+                        $model->getUpdatedAtColumn() => Carbon::now()->toDateTimeString(),
                     ] : []
                 );
                 $model->fill($attributes);
@@ -45,8 +45,8 @@ class BatchServiceProvider extends ServiceProvider
                 $attributes = array_merge(
                     $model->getAttributes(),
                     $model->usesTimestamps() ? [
-                        $model->getCreatedAtColumn() => Carbon::now()->format($model->getDateFormat()),
-                        $model->getUpdatedAtColumn() => Carbon::now()->format($model->getDateFormat()),
+                        $model->getCreatedAtColumn() => Carbon::now()->toDateTimeString(),
+                        $model->getUpdatedAtColumn() => Carbon::now()->toDateTimeString(),
                     ] : []
                 );
                 $model->fill($attributes);
