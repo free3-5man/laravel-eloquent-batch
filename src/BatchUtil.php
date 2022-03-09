@@ -14,6 +14,7 @@ class BatchUtil
     /** @var \PDO $pdo */
     private $pdo;
     private $connection;
+    private $driver;
 
     private $table;
     private $primaryKey;
@@ -30,6 +31,7 @@ class BatchUtil
 
         $this->pdo = $model->getConnection()->getPdo();
         $this->connection = $model->getConnectionName();
+        $this->driver = config('connections.' . $this->connection . '.driver');
 
         $this->table = $model->getTable();
         $this->primaryKey = $model->getKeyName();
@@ -76,7 +78,7 @@ class BatchUtil
 
         sort($fields);
         $fieldsString = collect($fields)->map(function($field) {
-            return "\"{$field}\"";
+            return $this->getWrappedField($field);
         })->implode(', ');
 
         return "INSERT INTO {$this->table} ({$fieldsString}) VALUES {$valuesString};";
@@ -224,5 +226,11 @@ class BatchUtil
             DB::rollBack();
             throw $e;
         }
+    }
+
+    private function getWrappedField(string $field)
+    {
+        // mysql 用``包裹字段，pgsql用""包裹
+        return $this->driver == 'mysql' ? "`{$field}`" : "\"{$field}\"";
     }
 }
