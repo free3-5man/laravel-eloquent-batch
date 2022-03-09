@@ -31,7 +31,7 @@ class BatchUtil
 
         $this->pdo = $model->getConnection()->getPdo();
         $this->connection = $model->getConnectionName();
-        $this->driver = config('connections.' . $this->connection . '.driver');
+        $this->driver = config('database.connections.' . $this->connection . '.driver');
 
         $this->table = $model->getTable();
         $this->primaryKey = $model->getKeyName();
