@@ -20,7 +20,7 @@ class BatchUtil
     private $primaryKey;
 
     private $chunkSize;
-    
+
     private $updateIndex;
 
     public function __construct(Model $model) {
@@ -110,10 +110,11 @@ class BatchUtil
         try {
             DB::beginTransaction();
 
+            $lastId = 0;
             if ($this->model->getIncrementing())
             {
                 // $lastId = $this->model->withTrashed()->latest($this->primaryKey)->value($this->primaryKey) ?? 0;
-                
+
                 $lastId = $this->pdo->lastInsertId($this->primaryKey);
                 $lastId = $lastId == 1 ? $lastId - 1 : $lastId;
                 // dump($lastId);
