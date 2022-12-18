@@ -174,7 +174,8 @@ class BatchUtil
         });
 
         $stringids = $filtered->map(function ($value) {
-            return $value[$this->updateIndex];
+            $id = $value[$this->updateIndex];
+            return "'{$id}'";
         })->implode(', ');
 
         $fieldsExceptId = collect($values)
