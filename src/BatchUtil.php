@@ -154,7 +154,7 @@ class BatchUtil
     public function escape($value)
     {
         if (is_bool($value))
-            return intval($value);
+            return $value ? 'true' : 'false';
 
         if (is_array($value))
             $value = json_encode($value);
