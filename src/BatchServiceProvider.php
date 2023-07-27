@@ -43,11 +43,11 @@ class BatchServiceProvider extends ServiceProvider
             })->values();
             $toInsertData = $toInsertColl->map(function (Model $model) {
                 $attributes = array_merge(
-                    $model->getAttributes(),
                     $model->usesTimestamps() ? [
                         $model->getCreatedAtColumn() => Carbon::now()->toDateTimeString(),
                         $model->getUpdatedAtColumn() => Carbon::now()->toDateTimeString(),
-                    ] : []
+                    ] : [],
+                    $model->getAttributes()
                 );
                 $model->fill($attributes);
 
