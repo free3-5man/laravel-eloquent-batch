@@ -122,7 +122,7 @@ class BatchUtil
 
             $returnIds = collect($values)->chunk($this->chunkSize)
             ->reduce(function ($returnIds, $chunk) use ($count, $lastId) {
-                $sql = $this->buildBatchInsertSql($chunk->toArray());
+                $sql = $this->buildBatchInsertSql($chunk->values()->toArray());
                 // dump($sql);
                 DB::connection($this->connection)->select($sql);
 
@@ -218,7 +218,7 @@ class BatchUtil
             DB::beginTransaction();
 
             collect($values)->chunk($this->chunkSize)->each(function($chunk) {
-                $query = $this->buildBatchUpdateSql($chunk->toArray());
+                $query = $this->buildBatchUpdateSql($chunk->values()->toArray());
 
                 DB::connection($this->connection)->statement($query);
             });
