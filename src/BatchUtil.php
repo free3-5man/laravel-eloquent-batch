@@ -160,8 +160,12 @@ class BatchUtil
             $value = json_encode($value);
 
         if (is_string($value)) {
-            // 把单个反斜杠替换为两个反斜杠
-            return $this->pdo->quote(str_replace('\\', '\\\\', $value));
+            // 把单个反斜杠替换为两个反斜杠，这种不可取，因为会有App\Models\xxx这样的情况
+            // $result = str_replace('\\', '\\\\', $value);
+            // 所以改为把尾部连续的反斜杠替换为空字符串
+            $result = preg_replace('/\\\+$/', '', $value);
+
+            return $this->pdo->quote($result);
         }
 
         return $value;
